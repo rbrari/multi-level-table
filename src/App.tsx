@@ -1,34 +1,36 @@
+import { Button } from '@/components/ui/button'
+import { fetchTableData } from '@/services/mainService'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState<unknown>(null)
+  const [loading, setLoading] = useState(false)
+
+  const handleFetch = async () => {
+    setLoading(true)
+    try {
+      const result = await fetchTableData()
+      setData(result)
+      console.log('MSW Response:', result)
+    } catch (error) {
+      console.error('Error:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="flex min-h-svh flex-col items-center justify-center gap-4">
+      <Button variant="outline" onClick={handleFetch} disabled={loading}>
+        {loading ? 'Loading...' : 'Test MSW'}
+      </Button>
+
+      {data !== null && (
+        <pre className="max-w-2xl overflow-auto rounded-lg bg-slate-900 p-4 text-sm text-white">
+          {JSON.stringify(data, null, 2)}
+        </pre>
+      )}
+    </div>
   )
 }
 
