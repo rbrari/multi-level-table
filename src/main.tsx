@@ -1,7 +1,8 @@
+import App from '@/App.tsx'
+import { ThemeProvider } from '@/components/theme'
+import '@/index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
 
 async function enableMocking() {
   const { worker } = await import('./mocks/browser.ts')
@@ -13,7 +14,9 @@ async function enableMocking() {
 enableMocking().then(() =>
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
-      <App />
+      <ThemeProvider defaultTheme="system">
+        <App />
+      </ThemeProvider>
     </StrictMode>,
   ),
 )

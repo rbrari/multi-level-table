@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@source inline('pl-{1..100}');
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -113,7 +115,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scrollbar-color: oklch(0.708 0 0) oklch(0.97 0 0);
   }
+
+  .dark * {
+    scrollbar-color: oklch(0.556 0 0) oklch(0.205 0 0);
+  }
+
   body {
     @apply bg-background text-foreground;
   }
