@@ -107,10 +107,7 @@ export function TableVirtualized<TData, TValue>({
       }}
       fixedHeaderContent={() =>
         table.getHeaderGroups().map((headerGroup) => (
-          <TableRow
-            className="h-12 bg-card transition-none last:border-b-0 hover:bg-muted"
-            key={headerGroup.id}
-          >
+          <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               const isPinned = header.column.columnDef.meta?.isPinned
               const leftOffset = isPinned ? (pinnedColumnsOffsets.get(header.column.id) ?? 0) : 0

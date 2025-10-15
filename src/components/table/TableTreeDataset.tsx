@@ -64,7 +64,7 @@ export function TableTreeDataset({
           <TableVirtualized
             columns={columns}
             data={tableRows}
-            height="385px"
+            height="392px"
             expanded={expanded}
             onExpandedChange={setExpanded}
           />

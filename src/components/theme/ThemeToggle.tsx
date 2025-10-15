@@ -38,7 +38,7 @@ export function ThemeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="z-[9999]">
         <ThemeMenuItem value="light" label="Light" currentTheme={theme} onSelect={setTheme} />
         <ThemeMenuItem value="dark" label="Dark" currentTheme={theme} onSelect={setTheme} />
         <ThemeMenuItem value="system" label="System" currentTheme={theme} onSelect={setTheme} />

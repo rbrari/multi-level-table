@@ -14,7 +14,12 @@ export const TableRowComponent = <TData,>(
     if (!row) return null
 
     return (
-      <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'} {...props}>
+      <TableRow
+        key={row.id}
+        data-state={row.getIsSelected() && 'selected'}
+        {...props}
+        className={cn(props.className, 'last-of-type:border-b-0')}
+      >
         {row.getVisibleCells().map((cell) => {
           const isPinned = cell.column.columnDef.meta?.isPinned
           const leftOffset = isPinned ? (pinnedColumnsOffsets.get(cell.column.id) ?? 0) : 0
