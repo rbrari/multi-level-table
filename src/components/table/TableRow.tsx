@@ -29,7 +29,7 @@ export const TableRowComponent = <TData,>(
             <TableCell
               key={cell.id}
               className={cn('bg-background', {
-                'sticky shadow-[inset_-2px_0_0_0_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_0_0_0_rgba(255,255,255,0.1)]':
+                'md:sticky md:shadow-[inset_-2px_0_0_0_rgba(0,0,0,0.1)] dark:md:shadow-[inset_-2px_0_0_0_rgba(255,255,255,0.1)]':
                   isPinned,
               })}
               style={{

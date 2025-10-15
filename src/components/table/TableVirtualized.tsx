@@ -117,7 +117,7 @@ export function TableVirtualized<TData, TValue>({
                   key={header.id}
                   colSpan={header.colSpan}
                   className={cn('bg-accent', {
-                    'sticky top-0 shadow-[inset_-2px_0_0_0_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_0_0_0_rgba(255,255,255,0.1)]':
+                    'md:sticky md:top-0 md:shadow-[inset_-2px_0_0_0_rgba(0,0,0,0.1)] dark:md:shadow-[inset_-2px_0_0_0_rgba(255,255,255,0.1)]':
                       isPinned,
                   })}
                   style={{
