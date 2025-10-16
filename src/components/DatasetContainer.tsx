@@ -16,7 +16,7 @@ export function DatasetContainer() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-screen-2xl space-y-6 p-6">
+    <div className="mx-auto w-full space-y-6 p-6">
       {datasetViews.map(({ primary, tableRows }) => (
         <TableTreeDataset
           key={primary}

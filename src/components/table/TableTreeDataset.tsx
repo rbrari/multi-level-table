@@ -45,7 +45,7 @@ export function TableTreeDataset({
 
   return (
     <div className="w-full overflow-hidden rounded-lg border bg-card">
-      <div className="flex items-center justify-between gap-4 bg-muted/30 px-4 py-3">
+      <div className="flex items-center justify-between gap-4 bg-muted/30 py-3 md:px-4">
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
@@ -55,7 +55,7 @@ export function TableTreeDataset({
           >
             <ChevronToggle isExpanded={!collapsed} />
           </Button>
-          <h2 className="text-lg font-semibold">{columnHeader}</h2>
+          <span className="text-xs font-semibold md:text-lg">{columnHeader}</span>
         </div>
         <TableActions onExpandAll={handleExpandAll} onCollapseAll={handleCollapseAll} />
       </div>
